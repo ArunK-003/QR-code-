@@ -1,46 +1,1111 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#071a2d">
-<title>AiVision360 | Links</title>
-<style>
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;display:grid;place-items:center;padding:28px;
-    font-family:Inter,Arial,Helvetica,sans-serif;color:#f5f8fc;
-    background:radial-gradient(ellipse at 80% 10%,rgba(0,190,230,.15),transparent 34%),
-               linear-gradient(145deg,#061426,#0a2540 58%,#071727)}
-  .wrap{width:min(100%,440px);text-align:center}
-  .brand{font-size:19px;font-weight:800;letter-spacing:.11em;margin:0 0 48px}
-  .brand span{color:#13c6e8}
-  .links{display:grid;gap:13px}
-  a{display:flex;align-items:center;gap:15px;text-align:left;text-decoration:none;color:#f7fbff;
-    padding:18px 19px;border:1px solid rgba(160,200,225,.22);border-radius:15px;
-    background:rgba(255,255,255,.055);transition:.2s ease}
-  a:hover{transform:translateY(-2px);border-color:#16c7e8;background:rgba(15,190,220,.10)}
-  .ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
-    background:rgba(18,197,228,.13);color:#32d4ef;flex:none}
-  .ico svg{width:21px;height:21px}
-  .label{font-size:16px;font-weight:750;display:block}
-  .arrow{margin-left:auto;color:#6bdcf0;font-size:22px}
-  footer{font-size:11px;color:#71879b;margin-top:42px;letter-spacing:.04em}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>AiVision360 | Real-Time Video Intelligence &amp; Ultra-Low Bandwidth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-cyan: #0284c7;
+      --primary-blue: #0369a1;
+      --text-dark: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Clean modern high-readability canvas */
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background-color: #f6f9fc;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Creative Ambient Mesh + Soft Glow Waves */
+    .bg-mesh-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(ellipse 65% 55% at 5% 0%, rgba(6, 182, 212, 0.16) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 95% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 60% at 50% 100%, rgba(14, 165, 233, 0.12) 0%, transparent 70%),
+        linear-gradient(180deg, #f8fbfd 0%, #f1f5f9 100%);
+    }
+
+    /* Subtle Architectural Geometric Flow Lines */
+    .bg-topo {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: 
+        radial-gradient(circle at 50% 50%, transparent 0, transparent 96px, rgba(2, 132, 199, 0.08) 97px, transparent 98px),
+        radial-gradient(circle at 50% 50%, transparent 0, transparent 196px, rgba(6, 182, 212, 0.06) 197px, transparent 198px),
+        radial-gradient(circle at 50% 50%, transparent 0, transparent 296px, rgba(99, 102, 241, 0.05) 297px, transparent 298px),
+        linear-gradient(90deg, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px;
+      mask-image: radial-gradient(ellipse 85% 85% at center, black 40%, transparent 95%);
+      -webkit-mask-image: radial-gradient(ellipse 85% 85% at center, black 40%, transparent 95%);
+    }
+
+    /* Floating soft luminous orbs */
+    .luminous-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: 0;
+      pointer-events: none;
+      animation: floatSmooth 18s ease-in-out infinite alternate;
+    }
+
+    .orb-cyan {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.22), transparent 70%);
+      top: -120px;
+      left: 10%;
+    }
+
+    .orb-indigo {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.16), transparent 70%);
+      bottom: -100px;
+      right: 5%;
+      animation-duration: 22s;
+      animation-delay: -5s;
+    }
+
+    @keyframes floatSmooth {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(35px, 25px) scale(1.06); }
+      100% { transform: translate(-25px, 35px) scale(0.96); }
+    }
+
+    /* FULL 100% WIDTH VIEWPORT (Edge-to-Edge) */
+    .app-viewport {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 32px 48px;
+    }
+
+    /* Edge-to-Edge 2-Column Grid (No max-width restriction) */
+    .main-row {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 56px;
+      align-items: center;
+      width: 100%;
+      margin: 0;
+      flex: 1;
+      padding: 20px 0;
+    }
+
+    /* LEFT SIDE: Brand & Capabilities */
+    .left-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .brand-top {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .logo-img {
+      max-width: 320px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+    }
+
+    .origin-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 6px 14px;
+      border-radius: 999px;
+      width: fit-content;
+      border: 1px solid #bae6fd;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 3.2vw, 44px);
+      font-weight: 850;
+      color: #0f172a;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 18px rgba(6, 182, 212, 0.18);
+    }
+
+    .hero-desc {
+      font-size: clamp(15px, 1.2vw, 18px);
+      color: #334155;
+      line-height: 1.65;
+      font-weight: 450;
+    }
+
+    .hero-desc strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* 4 Metrics Cards (Full Stretch) */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      width: 100%;
+    }
+
+    .metric-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      border-color: #0284c7;
+      box-shadow: 0 8px 22px rgba(2, 132, 199, 0.12);
+    }
+
+    .metric-val {
+      font-size: clamp(26px, 2.5vw, 36px);
+      font-weight: 850;
+      color: #0284c7;
+      line-height: 1.1;
+    }
+
+    .metric-lbl {
+      font-size: 13.5px;
+      font-weight: 750;
+      color: #0f172a;
+      margin-top: 5px;
+    }
+
+    .metric-sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 3px;
+      font-weight: 500;
+    }
+
+    /* Products Grid (Full Stretch) */
+    .products-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .prod-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .prod-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .prod-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .prod-icon-cyan {
+      background: #e0f2fe;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+    }
+
+    .prod-icon-blue {
+      background: #ede9fe;
+      color: #6366f1;
+      border: 1px solid #ddd6fe;
+    }
+
+    .prod-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .prod-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0284c7;
+      width: fit-content;
+      margin-top: 2px;
+    }
+
+    .prod-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* Industries row */
+    .industries-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .industries-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .industries-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ind-pill {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1e293b;
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 9px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .ind-pill:hover {
+      border-color: #0284c7;
+      color: #0284c7;
+      transform: translateY(-1px);
+    }
+
+    .ind-pill svg {
+      width: 15px;
+      height: 15px;
+      color: #0284c7;
+      flex-shrink: 0;
+    }
+
+    /* 20ms Visual Workflow Showcase Banner */
+    .workflow-banner {
+      background: linear-gradient(135deg, #091a2d 0%, #0d2847 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 18px;
+      padding: 16px 20px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 8px 24px -6px rgba(9, 26, 45, 0.25);
+    }
+
+    .workflow-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .wf-badge-speed {
+      font-size: 26px;
+      font-weight: 850;
+      color: #38bdf8;
+      line-height: 1;
+      text-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+    }
+
+    .wf-badge-speed span {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    .wf-tagline {
+      font-size: 13.5px;
+      font-weight: 750;
+      color: #f8fafc;
+      letter-spacing: -0.01em;
+    }
+
+    .wf-subline {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    /* 3-Step Pipeline in Banner */
+    .pipeline-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 8px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+
+    .step-item.active {
+      color: #38bdf8;
+    }
+
+    .step-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid #38bdf8;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      color: #38bdf8;
+    }
+
+    .step-arrow {
+      color: #64748b;
+      font-size: 12px;
+    }
+
+    /* RIGHT SIDE: Dedicated Card */
+    .right-section {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 28px;
+      padding: 44px 38px;
+      box-shadow: 
+        0 20px 40px -10px rgba(15, 23, 42, 0.09),
+        0 6px 16px -4px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .portal-head {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #047857;
+      background: #d1fae5;
+      padding: 5px 12px;
+      border-radius: 999px;
+      width: fit-content;
+      border: 1px solid #a7f3d0;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #059669;
+      box-shadow: 0 0 6px #059669;
+    }
+
+    .portal-title {
+      font-size: 26px;
+      font-weight: 850;
+      color: #0f172a;
+      letter-spacing: -0.015em;
+    }
+
+    .portal-desc {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* Action Tiles */
+    .links-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .link-tile {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 22px;
+      text-decoration: none;
+      color: inherit;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 18px;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+      transition: all 0.22s ease;
+    }
+
+    .link-tile:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 12px 26px -4px rgba(2, 132, 199, 0.18);
+    }
+
+    .tile-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .link-tile:hover .tile-icon {
+      transform: scale(1.06);
+    }
+
+    .icon-cyan {
+      background: #e0f2fe;
+      border: 1px solid #bae6fd;
+      color: #0284c7;
+    }
+
+    .icon-indigo {
+      background: #ede9fe;
+      border: 1px solid #ddd6fe;
+      color: #6366f1;
+    }
+
+    .tile-icon svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .tile-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tile-heading {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.25;
+    }
+
+    .tile-subtitle {
+      font-size: 13.5px;
+      color: #475569;
+      margin-top: 3px;
+      font-weight: 500;
+    }
+
+    .tile-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .link-tile:hover .tile-arrow {
+      color: #0284c7;
+      border-color: #0284c7;
+      background: #e0f2fe;
+      transform: translate(2px, -2px);
+    }
+
+    .tile-arrow svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* Direct Contact Card */
+    .direct-card {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1e293b;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .contact-line:hover {
+      color: #0284c7;
+    }
+
+    .contact-line svg {
+      width: 18px;
+      height: 18px;
+      color: #0284c7;
+      flex-shrink: 0;
+    }
+
+    .address-line {
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.5;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 12px;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* Global Full Width Footer */
+    .app-footer {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #64748b;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 24px;
+      font-weight: 500;
+    }
+
+    .app-footer strong {
+      color: #0284c7;
+      font-weight: 700;
+    }
+
+    /* RESPONSIVE LAYOUT (TABLET & MOBILE) */
+    @media (max-width: 1080px) {
+      .app-viewport {
+        padding: 28px 24px;
+        min-height: auto;
+      }
+      .main-row {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .right-section {
+        max-width: 100%;
+        padding: 32px 28px;
+      }
+      .metrics-row {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .products-group {
+        grid-template-columns: 1fr 1fr;
+      }
+      .app-footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .app-viewport {
+        padding: 20px 16px;
+      }
+      .main-row {
+        gap: 28px;
+        padding: 10px 0;
+      }
+      .logo-img {
+        max-width: 240px;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+      .hero-desc {
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .metric-card {
+        padding: 14px 10px;
+      }
+      .metric-val {
+        font-size: 22px;
+      }
+      .metric-lbl {
+        font-size: 12px;
+      }
+      .metric-sub {
+        font-size: 10.5px;
+      }
+      .products-group {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .product-card {
+        padding: 16px;
+      }
+      /* Stack workflow banner elements gracefully */
+      .workflow-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px;
+      }
+      .pipeline-steps {
+        width: 100%;
+        justify-content: space-around;
+      }
+      .right-section {
+        padding: 24px 18px;
+        border-radius: 22px;
+      }
+      .portal-title {
+        font-size: 22px;
+      }
+      .link-tile {
+        padding: 16px;
+        gap: 12px;
+      }
+      .tile-icon {
+        width: 44px;
+        height: 44px;
+      }
+      .tile-heading {
+        font-size: 15px;
+      }
+      .tile-subtitle {
+        font-size: 12px;
+      }
+      .direct-card {
+        padding: 16px;
+      }
+      .app-footer {
+        font-size: 11.5px;
+        padding-top: 20px;
+        margin-top: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pipeline-steps {
+        padding: 8px 10px;
+        gap: 4px;
+      }
+      .step-item {
+        font-size: 10.5px;
+        gap: 4px;
+      }
+      .step-dot {
+        width: 20px;
+        height: 20px;
+        font-size: 9px;
+      }
+      .industries-pills {
+        gap: 6px;
+      }
+      .ind-pill {
+        font-size: 11.5px;
+        padding: 5px 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-<main class="wrap">
-  <section class="links">
-    <a href="https://aivision360.com" target="_blank" rel="noopener">
-      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>
-      <span class="label">Visit our website</span>
-      <span class="arrow">↗</span>
-    </a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScioAhwuz_WFuP66zvT4sgEFJpokn-evUav80fNuSSoYLQ8AQ/viewform?usp=publish-editor" target="_blank" rel="noopener">
-      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h8l4 4v14H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M15 3v5h5M9 13h6M9 17h6"/></svg></span>
-      <span class="label">Get in touch</span>
-      <span class="arrow">↗</span>
-    </a>
-  </section>
-</main>
+
+  <!-- Creative Layered Tech Background -->
+  <div class="bg-mesh-canvas"></div>
+  <div class="bg-topo"></div>
+  <div class="luminous-orb orb-cyan"></div>
+  <div class="luminous-orb orb-indigo"></div>
+
+  <!-- FULL-WIDTH VIEWPORT CONTAINER -->
+  <div class="app-viewport">
+
+    <!-- Edge-to-Edge Main Row -->
+    <main class="main-row">
+
+      <!-- LEFT SIDE: Capabilities & Company Intelligence -->
+      <section class="left-section">
+        <div class="brand-top">
+          <img class="logo-img" src="logo.png" alt="AiVision360 - Turning Video into Intelligence, Without the Bandwidth Burden">
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <div class="origin-badge">
+              🇸🇬 Built in Singapore &bull; Global Operations
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 17px;" title="USA, Saudi Arabia, Australia">
+              <span>🇺🇸</span>
+              <span>🇸🇦</span>
+              <span>🇦🇺</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h1 class="hero-title">Streaming starts from <span>1 kbps</span> with real-time AI video intelligence</h1>
+          <p class="hero-desc">
+            Upgrade your existing CCTV cameras into an intelligent AI network that automatically detects safety risks and streams live video from <strong>1 kbps</strong> over cellular, satellite, and remote networks.
+          </p>
+        </div>
+
+        <!-- 4 Major Proof Points -->
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="metric-val">1 kbps</div>
+            <div class="metric-lbl">Min. Streaming</div>
+            <div class="metric-sub">Ultra-low bandwidth</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">60 kbps</div>
+            <div class="metric-lbl">Lossless Compression</div>
+            <div class="metric-sub">Down from 3 Mbps +</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">20 ms</div>
+            <div class="metric-lbl">Early Detection</div>
+            <div class="metric-sub">Breach-detection claim*</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-val">95%+</div>
+            <div class="metric-lbl">Less Storage</div>
+            <div class="metric-sub">1 TB &rarr; 20 GB/mo</div>
+          </div>
+        </div>
+
+        <!-- Two Core Products Grid -->
+        <div class="products-group">
+          <div class="product-card">
+            <div class="prod-header">
+              <div class="prod-icon prod-icon-cyan" style="padding: 2px; background: transparent; border: none;">
+                <img src="sentinel-bot.png" alt="Sentinel-360 AI Agent">
+              </div>
+              <div>
+                <div class="prod-name">Sentinel-360 AI</div>
+                <div class="prod-badge">AI Video Analytics</div>
+              </div>
+            </div>
+            <p class="prod-desc">
+              <strong>See the Threat. Know the Moment. Act in Time.</strong><br>
+              GNN AI detection: <strong>Machine Line-of-Fire</strong>, <strong>Improper Harness/PFAS</strong>, <strong>Restricted Redzones</strong>, and <strong>Person-Down Events</strong>.
+            </p>
+          </div>
+
+          <div class="product-card">
+            <div class="prod-header">
+              <div class="prod-icon prod-icon-blue" style="padding: 2px; background: transparent; border: none;">
+                <img src="nexus-bot.png" alt="Nexus AI Agent">
+              </div>
+              <div>
+                <div class="prod-name">Nexus AI</div>
+                <div class="prod-badge">Ultra-Low Bandwidth</div>
+              </div>
+            </div>
+            <p class="prod-desc">
+              <strong>More Video. Less Data. Anywhere.</strong><br>
+              Lossless video streaming from <strong>1 kbps</strong> with <strong>95%+</strong> storage reduction for remote and satellite sites.
+            </p>
+          </div>
+        </div>
+
+        <!-- 20ms Visual Workflow Banner -->
+        <div class="workflow-banner">
+          <div class="workflow-left">
+            <div class="wf-badge-speed">
+              <span>As Fast As</span>
+              20ms
+            </div>
+            <div>
+              <div class="wf-tagline">AI Detection &amp; Instant Alert Processing*</div>
+              <div class="wf-subline">*Breach-detection claim, subject to applicable configuration &amp; validation.</div>
+            </div>
+          </div>
+
+          <div class="pipeline-steps">
+            <div class="step-item active">
+              <span class="step-dot">👁️</span>
+              <span>Detect</span>
+            </div>
+            <span class="step-arrow">&rarr;</span>
+            <div class="step-item active">
+              <span class="step-dot">🔔</span>
+              <span>Alert</span>
+            </div>
+            <span class="step-arrow">&rarr;</span>
+            <div class="step-item">
+              <span class="step-dot" style="border-color: #10b981; color: #10b981; background: rgba(16,185,129,0.15)">🛡️</span>
+              <span style="color: #4ade80;">Respond</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industries Bar -->
+        <div class="industries-bar">
+          <span class="industries-label">Industries We Serve</span>
+          <div class="industries-pills">
+            <!-- Drone Monitoring -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/><path d="m15.5 8.5 3-3"/><path d="m8.5 8.5-3-3"/><path d="m15.5 15.5 3 3"/><path d="m8.5 15.5-3 3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><rect width="8" height="6" x="8" y="9" rx="2"/>
+              </svg>
+              Drone Monitoring
+            </span>
+
+            <!-- Retail &amp; Warehousing -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
+              </svg>
+              Retail &amp; Warehousing
+            </span>
+
+            <!-- Schools &amp; Campuses -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+              Schools &amp; Campuses
+            </span>
+
+            <!-- Maritime -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10V2"/>
+              </svg>
+              Maritime
+            </span>
+
+            <!-- Oil &amp; Gas -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2c-4 5-7 8.5-7 12a7 7 0 0 0 14 0c0-3.5-3-7-7-12Z"/><path d="M12 18a3 3 0 0 0 3-3"/>
+              </svg>
+              Oil &amp; Gas
+            </span>
+
+            <!-- Aviation -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+              </svg>
+              Aviation
+            </span>
+
+            <!-- Manufacture &amp; Construction -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h20"/><path d="m14 12 6-6V2h-4l-6 6"/><path d="M12 14v6"/><path d="M8 18v2"/><path d="M18 14v6"/><path d="M6 8a4 4 0 0 1 8 0v4H6Z"/>
+              </svg>
+              Manufacture &amp; Construction
+            </span>
+
+            <!-- Defence -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              Defence
+            </span>
+
+            <!-- Smart Transports -->
+            <span class="ind-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M8 15h.01"/><path d="M16 15h.01"/><path d="m6 19-2 2"/><path d="m18 21 2-2"/>
+              </svg>
+              Smart Transports
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT SIDE: Action Hub & Links -->
+      <section class="right-section">
+        <div class="portal-head">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            Official Connect Portal
+          </div>
+          <h2 class="portal-title">Take the Next Step</h2>
+          <p class="portal-desc">Connect with our engineering team or explore our solutions.</p>
+        </div>
+
+        <!-- Main Action Buttons -->
+        <div class="links-stack">
+          <!-- Form Link (Request Demo First) -->
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScioAhwuz_WFuP66zvT4sgEFJpokn-evUav80fNuSSoYLQ8AQ/viewform?usp=publish-editor" target="_blank" rel="noopener" class="link-tile">
+            <div class="tile-icon icon-indigo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <path d="M8 9h8M8 13h5"/>
+              </svg>
+            </div>
+            <div class="tile-body">
+              <div class="tile-heading">Request Demo / Inquiry</div>
+              <div class="tile-subtitle">Discuss POC, system integration &amp; partnerships</div>
+            </div>
+            <div class="tile-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Website Link (Second) -->
+          <a href="https://aivision360.com" target="_blank" rel="noopener" class="link-tile">
+            <div class="tile-icon icon-cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/>
+              </svg>
+            </div>
+            <div class="tile-body">
+              <div class="tile-heading">Explore Official Website</div>
+              <div class="tile-subtitle">Full product suite, technology &amp; solutions</div>
+            </div>
+            <div class="tile-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <!-- Direct Contact Card -->
+        <div class="direct-card">
+          <a href="tel:+6598933875" class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            +65 9893 3875
+          </a>
+
+          <a href="mailto:connect@aivision360.com" class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            connect@aivision360.com
+          </a>
+
+          <div class="address-line">
+            📍 10, Anson Road, #16-04, International Plaza, Singapore
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Global Full Width Footer -->
+    <footer class="app-footer">
+      <div>&copy; 2026 <strong>AiVision360</strong>. All rights reserved.</div>
+      <div>Turning Video into Intelligence, Without the Bandwidth Burden.</div>
+    </footer>
+
+  </div>
+
 </body>
 </html>
